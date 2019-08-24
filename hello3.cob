@@ -1,0 +1,48 @@
+*> 見出し部
+IDENTIFICATION DIVISION.
+ *> プログラム名
+ PROGRAM-ID. SAMPLE-01.
+
+*> 環境部
+ENVIRONMENT DIVISION.
+
+*> データ部
+DATA DIVISION.
+*> 変数定義セクション
+ WORKING-STORAGE SECTION.
+ 01 MY-SCORE PIC 9(3).
+ 01 MY-SIGNAL PIC x(10).
+ 01 MY-COUNTER PIC 9(2).
+*> 手続き部
+PROCEDURE DIVISION.
+MAIN.
+*> > < => <=
+*> =
+*> NOT =
+*> 条件分岐
+MOVE 80 TO MY-SCORE.
+IF MY-SCORE > 70 then
+  DISPLAY "70以上"
+ELSE
+  DISPLAY "70以下"
+END-IF.
+
+MOVE "red" TO MY-SIGNAL
+EVALUATE MY-SIGNAL
+    WHEN "red"
+        DISPLAY "Stop"
+    WHEN "bule"
+        DISPLAY "Go"
+    WHEN OTHER
+       CONTINUE
+END-EVALUATE.
+
+*> ループ
+PERFORM 10 TIMES
+    DISPLAY "counter " MY-COUNTER
+    ADD 1 TO MY-COUNTER
+END-PERFORM.
+
+STOP RUN.
+
+
